@@ -1,0 +1,220 @@
+.mainPackage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.ContainerPackage {
+  max-width: 300px;
+  border-radius: 12px;
+  border: 1px solid #a2533a;
+  background: radial-gradient(
+    48% 40% at 50% 24%,
+    #0a1013 0%,
+    #419d60 0.01%,
+    #1d3c38 54.63%,
+    #0a1013 100%
+  );
+  cursor: pointer;
+}
+.ContainerPackage:hover {
+  box-shadow: 0 0 40px #2b937a, 0 0 8px 2px #2b937a inset !important;
+}
+.ContainerPackageSi {
+  max-width: 300px;
+  border-radius: 12px;
+  border: 1px solid #fdfdfd;
+  background: radial-gradient(
+    48% 40% at 50% 24%,
+    #0a1013 0%,
+    #419d60 0.01%,
+    #1d3c38 54.63%,
+    #0a1013 100%
+  );
+  cursor: pointer;
+}
+.ContainerPackageSi:hover,
+.ContainerPackageGol:hover {
+  /* border: 1px solid #fff; */
+  box-shadow: 0 0 40px #2b937a, 0 0 8px 2px #2b937a inset !important;
+}
+
+.ContainerPackageGol {
+  max-width: 300px;
+  border-radius: 12px;
+  border: 1px solid #c3911a;
+  background: radial-gradient(
+    48% 40% at 50% 24%,
+    #0a1013 0%,
+    #419d60 0.01%,
+    #1d3c38 54.63%,
+    #0a1013 100%
+  );
+  cursor: pointer;
+}
+
+.title {
+  padding: 22px 0px 0px 0px;
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  background: linear-gradient(
+    65deg,
+    #a2533a -13.03%,
+    #eec07a 41.49%,
+    #ffbe99 58.04%,
+    #d77f4d 80.96%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.titleSi {
+  padding: 22px 0px 0px 0px;
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  background: linear-gradient(
+    89deg,
+    #fdfdfd 2.97%,
+    #e5e5e5 11.69%,
+    #a9a9a9 23.47%,
+    #d4d4d4 43.67%,
+    #efefef 53.35%,
+    #f9f9f9 59.17%,
+    #f3f3f3 63.04%,
+    #e2e2e2 68.86%,
+    #d8d8d8 80.76%,
+    #f3f3f3 95.98%,
+    #fdfdfd 99.86%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.titleGol {
+  padding: 22px 0px 0px 0px;
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  background: linear-gradient(
+    59deg,
+    #c3911a 2.74%,
+    #ffd646 53.63%,
+    #ffde2d 68.46%,
+    #d7ae4d 89%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.money {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 150%;
+  padding-bottom: 14.66px;
+}
+.btnBuy {
+  padding: 8px 0px;
+  border-radius: 4px;
+  background: linear-gradient(
+    45deg,
+    #a2533a 12.23%,
+    #eec07a 50.21%,
+    #ffbe99 64.2%,
+    #d77f4d 83.57%
+  );
+  align-items: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  color: #1f1f1f;
+}
+.btnBuySi {
+  padding: 8px 0px;
+  align-items: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  color: #1f1f1f;
+  border-radius: 4px;
+  background: linear-gradient(
+    81deg,
+    #fdfdfd -3.96%,
+    #c5c5c5 14.8%,
+    #d4d4d4 33.28%,
+    #efefef 42.14%,
+    #f9f9f9 47.46%,
+    #d8d8d8 67.22%,
+    #f3f3f3 81.15%,
+    #fdfdfd 84.7%
+  );
+}
+.btnBuyGol {
+  padding: 8px 0px;
+  align-items: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  color: #1f1f1f;
+  border-radius: 4px;
+  background: linear-gradient(
+    59deg,
+    #c3911a 2.74%,
+    #ffd646 53.63%,
+    #ffde2d 68.46%,
+    #d7ae4d 89%
+  );
+}
+.itemPackage {
+  padding: 26.2px 21px 26px 14px;
+}
+.homeContentChooieItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 7px;
+  margin-bottom: 6px;
+}
+.homeContentChooieImageOption {
+  padding: none;
+  margin-top: 6px;
+}
+.homeContentChooieItemText {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  color: #fff;
+  text-align: start;
+}
+.homeContentGemItemMain {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+.ContainerActive {
+  border-radius: 12px;
+  box-shadow: 0 0 40px #2b937a, 0 0 8px 2px #2b937a inset !important;
+}

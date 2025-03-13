@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: #fff;
+  background: #101010;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+@keyframes instant-marquee {
+  0% {
+    transform: translateX(20%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-instant-marquee {
+  display: inline-block;
+  animation: instant-marquee 70s linear infinite;
+  animation-play-state: running;
+  /* Đảm bảo bắt đầu chạy ngay */
+}
+
+
+/* Ẩn nút tăng/giảm cho các trình duyệt Webkit (Chrome, Edge, Safari) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Ẩn nút tăng/giảm cho Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.break-anywhere {
+  overflow-wrap: anywhere;
+}
+
+w3m-modal {
+  z-index: 999999999;
+}
+

@@ -1,0 +1,127 @@
+.action_popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+}
+.action_btn_cancel {
+  border-radius: 4px;
+  border: 1px solid #94ffdf;
+  padding: 16px 64px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  color: #94ffdf;
+  background: none;
+  width: 50%;
+}
+.action_btn_confirm {
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #94ffdf;
+
+  background: radial-gradient(
+      2058.68% 50% at 50% 50%,
+      rgba(43, 147, 122, 0.1) 0%,
+      rgba(43, 147, 122, 0) 100%
+    ),
+    #2b937a;
+  padding: 16px 64px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  color: #fff;
+  width: 50%;
+}
+.action_btn_confirm_final {
+  width: 320px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #94ffdf;
+  background: radial-gradient(
+      2058.68% 50% at 50% 50%,
+      rgba(43, 147, 122, 0.1) 0%,
+      rgba(43, 147, 122, 0) 100%
+    ),
+    #0a1013;
+  padding: 16px 64px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  color: #94ffdf;
+}
+.action_popup_main_final {
+  border-radius: 16px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+}
+.action_popup_container_final {
+  border-radius: 16px;
+  background: radial-gradient(
+    39% 42% at 50% 0%,
+    #0a1013 0%,
+    #419d60 0.01%,
+    #1d3c38 54.63%,
+    #0a1013 100%
+  );
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+}
+.title_connect_app {
+  padding: 32px 32px 8px 32px;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+}
+.item_connect_app {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin: 24px 0px;
+  padding: 16px;
+}
+.item_connect_app1 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin: 24px 0px 24px 6px;
+  padding: 16px;
+}
+.item_connect_app_contaner {
+  /* padding: 0px 16px; */
+  margin: 0px 36px;
+
+  border-radius: 8px;
+  background: radial-gradient(
+      2058.68% 50% at 50% 50%,
+      rgba(43, 147, 122, 0.2) 0%,
+      rgba(43, 147, 122, 0) 100%
+    ),
+    rgba(10, 16, 19, 0.7);
+}
+
+@media only screen and (max-width: 600px) {
+  .action_btn_cancel {
+    padding: 8px;
+    width: 50%;
+  }
+  .action_btn_confirm {
+    padding: 8px;
+    width: 50%;
+  }
+  .action_popup {
+    gap: 6px;
+    width: 100%;
+  }
+}

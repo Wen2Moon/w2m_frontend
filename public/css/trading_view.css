@@ -1,0 +1,155 @@
+.chart-page {
+  background-color: #0f1211 !important;
+}
+
+.chart-container {
+  background-color: #0f1211 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+}
+
+.tv-chart-container {
+  background-color: #0f1211 !important;
+}
+
+[class^="chart-markup-table"] {
+  background-color: #0f1211 !important;
+}
+
+.layout__area--center,
+.layout__area--left,
+.layout__area--right {
+  background-color: #0f1211 !important;
+}
+
+.chart-controls-bar,
+.chart-controls-bar-buttons {
+  background-color: #0f1211 !important;
+}
+
+div[style*="background-color"] {
+  background-color: #0f1211 !important;
+}
+
+.loading-indicator {
+  background-color: #0f1211 !important;
+}
+
+.chart-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #0f1211;
+  z-index: -1;
+}
+
+/* Add these rules */
+html.theme-dark .group-3uonVBsm,
+.group-3uonVBsm,
+[class*="group-"] {
+  background-color: #0f1211 !important;
+}
+
+/* For different variations of the group class */
+.group-wWM3zP_M-,
+.group-2JyOhh7Z,
+html.theme-dark .group-wWM3zP_M-,
+html.theme-dark .group-2JyOhh7Z {
+  background-color: #0f1211 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+}
+
+/* To catch any dynamically generated group classes */
+[class^="group-"],
+[class*=" group-"] {
+  background-color: #0f1211 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+}
+
+/* Also add this to ensure it overrides any theme-specific styles */
+html[theme="dark"] [class*="group-"],
+.theme-dark [class*="group-"] {
+  background-color: #0f1211 !important;
+}
+
+/* Bottom panel border */
+.layout__area--bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Right panel border */
+.layout__area--right {
+  border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Left panel border */
+.layout__area--left {
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Tool buttons hover effect */
+.button-2ioYhFEY:hover:not(.isDisabled-2ioYhFEY) {
+  border: 1px solid #40ff9f !important;
+  background-color: transparent !important;
+}
+
+/* Active tool button */
+.button-2ioYhFEY.isActive-2ioYhFEY {
+  border: 1px solid #40ff9f !important;
+  background: linear-gradient(90deg, #06eeff 0%, #40ff9f 100%) !important;
+}
+
+/* Toolbar separator */
+.separator-3No0pWrk {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Dropdown menus border */
+.menuWrap-g78rwseC {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+}
+
+/* Tool panels hover state */
+.group-wWM3zP_M-:hover,
+.group-2JyOhh7Z:hover,
+[class^="group-"]:hover {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Add these rules for inner backgrounds */
+html.theme-dark .inner-2_so5thS,
+.inner-2_so5thS,
+[class*="inner-"] {
+  background-color: #0f1211 !important;
+}
+
+/* Catch all possible variations of inner class */
+.inner-wWM3zP_M-,
+.inner-2JyOhh7Z,
+html.theme-dark .inner-wWM3zP_M-,
+html.theme-dark .inner-2JyOhh7Z,
+[class^="inner-"],
+[class*=" inner-"] {
+  background-color: #0f1211 !important;
+}
+
+/* Override any CSS variable usage */
+:root {
+  --tv-color-platform-background: #0f1211 !important;
+}
+
+/* Additional specificity for theme-dark context */
+html[theme="dark"] [class*="inner-"],
+.theme-dark [class*="inner-"] {
+  background-color: #0f1211 !important;
+} 
+.withSidebar-1e-cIUlp .tabContent-1e-cIUlp {
+  background: #0f1211;
+  border-right: 20px solid #1e222d;
+}

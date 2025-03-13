@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.disabled-btn {
+  background: rgba(0, 0, 0, 0.26);
+  opacity: 0.5;
+  color: #ffffff !important;
+}
+
+/* width */
+.modal-claim ::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+.modal-claim ::-webkit-scrollbar-track {
+  background: rgba(84, 84, 84, 1);
+  border-radius: 8px;
+}
+
+/* Handle */
+.modal-claim ::-webkit-scrollbar-thumb {
+  background: rgba(149, 255, 226, 1);
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+.modal-claim ::-webkit-scrollbar-thumb:hover {
+  background: rgba(149, 255, 226, 0.4);
+}
+
+.mainWrapper {
+  /* background-image: url(../../public/images/bg.png); */
+  width: 100%;
+  /* background-size: 100% 100%; */
+  background-repeat: no-repeat;
+  background-image: url("/images/page_bg.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% 100%;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.showFeauture {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.3s linear, opacity 0.3s linear;
+  animation: fade-out 1s;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.progressBar span {
+  height: 2px;
+  background-color: transparent;
+}
+.progressBar svg {
+  position: absolute;
+  right: -10px;
+  top: -8px;
+}
+
+.progressBar span > span {
+  height: 2px;
+  background-color: #ffffff;
+}
+
+.linkSocial {
+  transition: all 0.8s;
+  cursor: pointer;
+}
+
+@keyframes scaling {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.2);
+  }
+}
+
+.linkSocial :hover {
+  animation: scaling 0.8s both;
+}
+
+.base-Popper-root {
+  background-image: url("../../public/images/language/bg.png");
+  background-size: 100% 100%;
+}
+
+.base-Popper-root li {
+  background: transparent !important;
+}
+
+.base-Popper-root .Mui-selected {
+  background-color: var(
+    --variant-solidActiveBg,
+    var(
+      --joy-palette-neutral-solidActiveBg,
+      var(--joy-palette-neutral-700, #32383e)
+    )
+  ) !important;
+}
+
+/* feature */
+/* pro max */
+@media only screen and (max-width: 430px) {
+  .feature1 {
+    position: relative;
+    top: 2px;
+  }
+  .feature1 img {
+    width: 120px;
+  }
+
+  .feature2 {
+    padding-top: 10px;
+  }
+
+  .feature3 {
+    position: relative;
+    padding-top: 5px;
+  }
+
+  .feature4 {
+    padding-top: 10px;
+  }
+
+  .feature5 {
+    position: relative;
+    top: -5px;
+  }
+
+  .feature9 {
+    padding-top: 48px;
+  }
+}
+
+/* xr */
+@media only screen and (max-width: 414px) {
+  .feature2 {
+    padding-top: 15px;
+  }
+  .feature3 {
+    padding-top: 10px;
+  }
+  .feature4 {
+    padding-top: 8px;
+  }
+  .feature5 {
+    position: relative;
+    top: 10px;
+  }
+  .feature9 {
+    padding-top: 50px;
+  }
+}
+
+/* pro */
+@media only screen and (max-width: 390px) {
+  .feature1 img {
+    width: 120px;
+  }
+  .feature2 {
+    padding-top: 10px;
+  }
+  .feature3 {
+    padding-top: 8px;
+  }
+  .feature4 {
+    position: relative;
+    top: 5px;
+  }
+  .feature5 {
+    position: relative;
+    top: 12px;
+  }
+  .feature8 {
+    position: relative;
+    top: 5px;
+  }
+  .feature9 {
+    padding-top: 0;
+    position: relative;
+    top: 56px;
+  }
+}
+
+/* se */
+@media only screen and (max-width: 375px) {
+  .feature2 {
+    position: relative;
+    top: 8px;
+  }
+  .feature3 {
+    padding-top: 41px;
+  }
+  .feature4 {
+    position: relative;
+    top: 25px;
+  }
+  .feature5 {
+    position: relative;
+    top: 58px;
+  }
+  .feature9 {
+    padding-top: 0;
+    position: relative;
+    top: 32px;
+  }
+}
+
