@@ -51,7 +51,7 @@ const MainPage = () => {
         <div className="space-y-4">
           <ChartComponent
             poolAddress={addressToken as string}
-            tokenName={`W2M/${token?.symbol}`}
+            tokenName={`ATH/${token?.symbol}`}
             marketCap={formatNumber(token?.marketCap) as string}
             owner={shortenAddress(token?.owner)}
             baseTokenPrice={token?.baseTokenPrice}

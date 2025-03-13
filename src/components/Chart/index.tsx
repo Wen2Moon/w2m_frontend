@@ -193,7 +193,7 @@ const CandleStickChart: React.FC<CandleStickChartProps> = ({
     if (!containerRef.current || !data?.length || !tvReady) return;
 
     const widgetOptions: any = {
-      symbol: symbol || "W2M/USDT", // Default symbol
+      symbol: symbol || "ATH/USDT", // Default symbol
       interval: getIntervalFromTimeWindow(timeWindow),
       container: containerRef.current,
       library_path: "/charting_library/",
