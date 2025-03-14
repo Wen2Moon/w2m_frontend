@@ -19,8 +19,34 @@ import { parseUnits } from "ethers";
 import useTokenBalance from "@/hooks/useTokenBalance";
 import { showToast } from "@/utils/toast";
 import { useRouter } from "next/navigation";
+const PINATA_API_KEY = "5cc964bebb31cc4254eb";
+const PINATA_API_SECRET =
+  "cf98da7f27d48a6588360273bd09a1c4df7a21f71d20a47be2a4538bff589656";
+const PINATA_JWT =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI0YjdmMDcxNy0yNTgxLTQ4YTAtODQ2MC1lMjQ4ZGIyMDNmNWEiLCJlbWFpbCI6InNvbnRtLmFzZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MSwiaWQiOiJGUkExIn0seyJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MSwiaWQiOiJOWUMxIn1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiNWNjOTY0YmViYjMxY2M0MjU0ZWIiLCJzY29wZWRLZXlTZWNyZXQiOiJjZjk4ZGE3ZjI3ZDQ4YTY1ODgzNjAyNzNiZDA5YTFjNGRmN2EyMWY3MWQyMGE0N2JlMmE0NTM4YmZmNTg5NjU2IiwiZXhwIjoxNzczNDc0MjYxfQ.QnOm7mCIe62TaUsoJWXGtffDfbydBp-NDv4lqu2MsL0";
 
 const CreateTokenForm = () => {
+  const uploadToPinata = async (file: any) => {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await axios.post(
+        "https://api.pinata.cloud/pinning/pinFileToIPFS",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${PINATA_JWT}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      return `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
+    } catch (error) {
+      console.error("Pinata upload failed:", error);
+      return null;
+    }
+  };
   const { address, isConnected, isConnecting, chainId } = useAccount();
 
   const { t } = useTranslation();
@@ -29,7 +55,7 @@ const CreateTokenForm = () => {
   const validationSchema = Yup.object({
     tokenName: Yup.string().required(t("token_name_required")),
     tokenSymbol: Yup.string().required(t("token_symbol_required")),
-    tokenImage: Yup.mixed().required(t("token_image_required")),
+    // tokenImage: Yup.mixed().required(t("token_image_required")),
     description: Yup.string(),
     initialBuyAmount: Yup.string().required(t("initial_buy_amount_required")),
     buybackBuy: Yup.number()
@@ -124,79 +150,60 @@ const CreateTokenForm = () => {
     setCurrentAmount(value);
   };
 
-  const handleSubmit = async (values: typeof initialValues) => {
+  const handleSubmit = async (values: any) => {
     if (isWrongNetwork) {
-      // Hiển thị thông báo lỗi network
       toast.error(t("wrong_network"));
       return;
     }
 
     setSubmitting(true);
-    // Tải ảnh lên
+
     try {
       if (checkApproveToken) {
-        // Cần approve
-        const approveResult = await approve(
-          Number(values.initialBuyAmount).toString(),
-          decimals
-        );
+        await approve(Number(values.initialBuyAmount).toString(), decimals);
         setSubmitting(false);
         return;
       }
-      const formData = new FormData();
-      formData.append("image", values.tokenImage);
 
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_PUBLICAPI_KEY}/file-upload/upload`,
-        formData,
-        {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      // Upload image to Pinata
+      const imageUrl = await uploadToPinata(values.tokenImage);
+      if (!imageUrl) throw new Error("Image upload failed");
 
-      // Lưu URL của ảnh upload
-      const imageUrl = response.data;
       setUploadedImageUrl(imageUrl);
-      // Định dạng poolDetails
+
       const poolDetails = JSON.stringify({
-        mainImage: `${process.env.NEXT_PUBLIC_PUBLICAPI_KEY}/file-upload/image/${imageUrl.data}`, // Ảnh chính
-        website: values.website || "", // Website
-        description: values.description || "", // Mô tả
-        telegram: values.telegram || "", // Telegram
-        subImage:
-          "https://photos.pinksale.finance/file/pinksale-logo-upload/1735269423230-b846b06f654bbeca9bdfa019e19bfb5f.jpg", // Ảnh phụ
-        status: "visible", // Trạng thái hiển thị
+        mainImage: imageUrl,
+        website: values.website || "",
+        description: values.description || "",
+        telegram: values.telegram || "",
+        subImage: imageUrl,
+        status: "visible",
       });
 
-      // Payload để gửi tới smart contract
       const payload = {
         name: values.tokenName,
         symbol: values.tokenSymbol,
         poolDetails,
-        configIndex: 1, // Giá trị cố định hoặc thay đổi theo yêu cầu
-        router: getContractsByChainId(chainId).router, // Địa chỉ router, thay bằng giá trị thực tế
-        startTime: Math.floor(Date.now() / 1000), // Timestamp hiện tại
+        configIndex: 1,
+        router: getContractsByChainId(chainId).router,
+        startTime: Math.floor(Date.now() / 1000),
         buyFeeRate: values.buybackBuy,
         sellFeeRate: values.buybackSell,
-        maxBuyAmount: 0, // Giá trị cố định hoặc từ form
-        delayBuyTime: 0, // Giá trị cố định hoặc từ form
+        maxBuyAmount: 0,
+        delayBuyTime: 0,
         merkleRoot:
-          "0x0000000000000000000000000000000000000000000000000000000000000000", // Giá trị cố định
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
         initialBuyAmount: Number(values.initialBuyAmount),
       };
-      // Gọi hàm createToken
+
       await createToken(payload);
       setSubmitting(false);
       console.log("Payload sent to contract:", payload);
     } catch (error) {
+      console.error("Error in handleSubmit:", error);
       setSubmitting(false);
     }
   };
-
   return (
     <Formik
       initialValues={initialValues}

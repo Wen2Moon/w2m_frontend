@@ -302,11 +302,11 @@ const CandleStickChart: React.FC<CandleStickChartProps> = ({
             alignItems: "center",
           }}
         >
-          {(isLoading || !tvReady) && (
+          {/* {(isLoading || !tvReady) && (
             <LoadingWrapper>
               <LocalLoader />
             </LoadingWrapper>
-          )}
+          )} */}
         </ChartContainer>
       )}
     </div>

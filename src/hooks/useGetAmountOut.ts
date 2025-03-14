@@ -29,7 +29,7 @@ export function useGetAmountOut({
   contractAddress,
   slippage = 0.5, // 0.5%
   enabled = true,
-  decimals = 18
+  decimals = 9
 }: GetAmountOutParams) {
 
   const parsedMinAmountOut = parseUnits(
@@ -53,9 +53,7 @@ export function useGetAmountOut({
         totalFee: data[2],
         platformFee: data[3],
         tradeFee: data[4],
-        minAmountOut: data[1] ? BigInt(
-          Number(data[1]) * (1 - slippage / 100)
-        ) : 0
+        minAmountOut: data[1] ?parsedMinAmountOut : 0
       }
     : undefined
 
